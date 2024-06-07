@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  background-color: black;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.content {
+  scrollbar-width: none;
+  /* Firefox */
+}
