@@ -5,6 +5,9 @@ import DisplayAlbum from "./DisplayAlbum"
 import { useEffect, useRef } from "react"
 import { albumsData } from "../assets/assets"
 import Home from "../pages/Home"
+import Artists from "../artists/Artists"
+import Albums from "./Albums"
+import Radio from "./Radio"
 
 const Display = ({ loggedIn }) => {
   const displayRef = useRef('')
@@ -23,18 +26,26 @@ const Display = ({ loggedIn }) => {
   }, [isAlbum, bgColor])
 
   return (
-    <div ref={displayRef} className="w-[100%] m-2 px-6 pt-4 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0">
+    <div ref={displayRef} className="w-[100%] m-2 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0">
       <NavBar loggedIn={loggedIn} />
-      <Routes>
-        {
-          loggedIn ?
-            <>
-              <Route path='/' element={<DisplayHome />} />
-              <Route path='/album/:id' element={<DisplayAlbum />} />
-            </> :
-            <Route path='/' element={<Home />} />
-        }
-      </Routes>
+      <div className="px-6 pt-14">
+        <Routes>
+          {
+            loggedIn ?
+              <>
+                <Route path='/' element={<DisplayHome />} />
+                <Route path='/album/:id' element={<DisplayAlbum />} />
+              </> :
+              <>
+                <Route path='/' element={<Home />} />
+                <Route path='/artists' element={<Artists />} />
+                <Route path='/albums' element={<Albums />} />
+                <Route path="/radios" element={<Radio />} />
+              </>
+          }
+
+        </Routes>
+      </div>
     </div>
   )
 }

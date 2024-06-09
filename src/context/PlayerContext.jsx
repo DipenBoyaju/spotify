@@ -77,6 +77,9 @@ const PlayerContextProvider = (props) => {
     }, 1000)
   }, [audioRef])
 
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const [currentId, setCurrentId] = useState('')
+
   const contextValue = {
     audioRef,
     seekBg,
@@ -87,7 +90,9 @@ const PlayerContextProvider = (props) => {
     time, setTime,
     play, pause,
     playWithId, previous, next,
-    seekSong
+    seekSong,
+    showLoginPopup, setShowLoginPopup,
+    currentId, setCurrentId
   }
   return (
     <PlayerContext.Provider value={contextValue}>
