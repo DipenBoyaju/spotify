@@ -1,13 +1,24 @@
-import { MdPlayArrow } from "react-icons/md"
-import { useNavigate } from "react-router-dom"
-import { artists } from "../assets/assets"
+// import { MdPlayArrow } from "react-icons/md"
+// import { useNavigate } from "react-router-dom"
+// import { artists } from "../assets/assets"
+import { useEffect } from "react";
+import { useGetAllArtistsQuery } from "./artistsApi"
 
 const Artists = () => {
-  const nav = useNavigate()
+  // const nav = useNavigate()
+  const { data, error, isLoading, refetch } = useGetAllArtistsQuery('2w9zwq3AktTeYYMuhMjju8');
+
+  useEffect(() => {
+    refetch();
+  },);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  console.log(data);
   return (
     <div className="">
       <h1 className="text-white text-3xl font-semibold py-4">Artists</h1>
-      <div className="grid grid-cols-2 gap-6 lg:grid-cols-5 lg:gap-2">
+      {/* <div className="grid grid-cols-2 gap-6 lg:grid-cols-5 lg:gap-2">
         {
           artists.map((item, index) => (
             <div key={index} onClick={() => nav(`/album/${item.id}`)} className=" p-2 px-3 w-full h-auto rounded cursor-pointer hover:bg-[#ffffff26] relative group">
@@ -22,7 +33,21 @@ const Artists = () => {
             </div>
           ))
         }
-      </div>
+      </div> */}
+      <ul>
+        {data && data.artists.map((item) => {
+          return <div key={item.id}>
+            <p className="text-white">{item.name}</p>
+          </div>
+        })}
+        {/* {data?.artists?.map((artist) => (
+          <li key={artist.id}>
+            <p>Name: {artist.name}</p>
+            <p>Followers: {artist.followers}</p>
+            <img src={artist.images[0]?.url} alt={artist.name} />
+          </li>
+        ))} */}
+      </ul>
     </div>
   )
 }

@@ -9,6 +9,7 @@ import Artists from "../artists/Artists"
 import Albums from "./Albums"
 import Radio from "./Radio"
 import { PlayerContext } from "../context/PlayerContext"
+import Footer from "../layout/Footer"
 
 const Display = () => {
   const displayRef = useRef('')
@@ -47,6 +48,7 @@ const Display = () => {
           }
 
         </Routes>
+        <Footer />
       </div>
     </div>
   )
