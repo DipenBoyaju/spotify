@@ -2,19 +2,21 @@ import { Route, Routes, useLocation } from "react-router-dom"
 import NavBar from "../layout/NavBar"
 import DisplayHome from "./DisplayHome"
 import DisplayAlbum from "./DisplayAlbum"
-import { useEffect, useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { albumsData } from "../assets/assets"
 import Home from "../pages/Home"
 import Artists from "../artists/Artists"
 import Albums from "./Albums"
 import Radio from "./Radio"
+import { PlayerContext } from "../context/PlayerContext"
 
-const Display = ({ loggedIn }) => {
+const Display = () => {
   const displayRef = useRef('')
   const location = useLocation()
   const isAlbum = location.pathname.includes("album")
   const albumId = isAlbum ? location.pathname.slice(-1) : ""
-  const bgColor = albumsData[Number(albumId)].bgColor
+  const bgColor = albumsData[Number(albumId)].bgColor;
+  const { loggedIn } = useContext(PlayerContext)
 
 
   useEffect(() => {
@@ -27,8 +29,8 @@ const Display = ({ loggedIn }) => {
 
   return (
     <div ref={displayRef} className="w-[100%] m-2 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0">
-      <NavBar loggedIn={loggedIn} />
-      <div className="px-6 pt-14">
+      <NavBar />
+      <div className="px-6">
         <Routes>
           {
             loggedIn ?

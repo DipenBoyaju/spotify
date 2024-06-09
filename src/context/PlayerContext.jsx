@@ -79,6 +79,8 @@ const PlayerContextProvider = (props) => {
 
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [currentId, setCurrentId] = useState('')
+  const [loggedIn, setLoggedIn] = useState(true);
+
 
   const contextValue = {
     audioRef,
@@ -92,7 +94,8 @@ const PlayerContextProvider = (props) => {
     playWithId, previous, next,
     seekSong,
     showLoginPopup, setShowLoginPopup,
-    currentId, setCurrentId
+    currentId, setCurrentId,
+    loggedIn, setLoggedIn
   }
   return (
     <PlayerContext.Provider value={contextValue}>
