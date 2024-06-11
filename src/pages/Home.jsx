@@ -7,7 +7,7 @@ const Home = () => {
   const nav = useNavigate()
   return (
     <>
-      <div className="mb-4 pt-14">
+      <div className="mb-4 pt-14 px-6">
         <div className="flex justify-between items-center">
           <h1 className="my-5 font-bold text-2xl">Popular artists</h1>
           <p onClick={() => nav('/artists')} className="text-zinc-400 font-bold text-sm cursor-pointer hover:underline">show all</p>

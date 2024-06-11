@@ -5,7 +5,7 @@ import { FaFacebook } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col py-20">
+    <div className="flex flex-col py-20 px-6">
       <div className="grid grid-cols-5">
         <div className="">
           <h3 className="text-zinc-100 font-semibold pb-2">Company</h3>
@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="">
           <h3 className="text-zinc-100 font-semibold pb-2">Spotify Plans</h3>
           <ul className="text-zinc-400 text-[16px] flex flex-col gap-1">
-            <li className="hover:underline hover:text-zinc-100">Premium Individual</li>
+            <Link className="hover:underline hover:text-zinc-100">Premium Individual</Link>
             <Link className="hover:underline hover:text-zinc-100">Premium Duo</Link>
             <Link className="hover:underline hover:text-zinc-100">Premium Family</Link>
             <Link className="hover:underline hover:text-zinc-100">Premium Student</Link>

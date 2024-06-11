@@ -5,6 +5,7 @@
 
 body {
   background-color: black;
+  scrollbar-width: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -14,4 +15,15 @@ body {
 .content {
   scrollbar-width: none;
   /* Firefox */
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+  scrollbar-width: 10px;
+}
+
+.searchInput::placeholder {
+  color: rgb(88, 87, 87);
+  font-size: 14px;
 }

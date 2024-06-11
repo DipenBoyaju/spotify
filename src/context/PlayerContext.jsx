@@ -80,6 +80,8 @@ const PlayerContextProvider = (props) => {
   const [showLoginPopup, setShowLoginPopup] = useState(false);
   const [currentId, setCurrentId] = useState('')
   const [loggedIn, setLoggedIn] = useState(true);
+  const [showArtistMenu, setShowArtistMenu] = useState(false)
+  const [showArtistTag, setShowArtistTag] = useState(false)
 
 
   const contextValue = {
@@ -95,7 +97,9 @@ const PlayerContextProvider = (props) => {
     seekSong,
     showLoginPopup, setShowLoginPopup,
     currentId, setCurrentId,
-    loggedIn, setLoggedIn
+    loggedIn, setLoggedIn,
+    showArtistMenu, setShowArtistMenu,
+    showArtistTag, setShowArtistTag
   }
   return (
     <PlayerContext.Provider value={contextValue}>

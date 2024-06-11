@@ -10,6 +10,10 @@ import Albums from "./Albums"
 import Radio from "./Radio"
 import { PlayerContext } from "../context/PlayerContext"
 import Footer from "../layout/Footer"
+import ArtistDetail from "../artists/ArtistDetail"
+import Search from "../pages/Search"
+import ScrollToTop from "./ScrollToTop"
+import Profile from "../profile/Profile"
 
 const Display = () => {
   const displayRef = useRef('')
@@ -18,7 +22,6 @@ const Display = () => {
   const albumId = isAlbum ? location.pathname.slice(-1) : ""
   const bgColor = albumsData[Number(albumId)].bgColor;
   const { loggedIn } = useContext(PlayerContext)
-
 
   useEffect(() => {
     if (isAlbum) {
@@ -29,28 +32,33 @@ const Display = () => {
   }, [isAlbum, bgColor])
 
   return (
-    <div ref={displayRef} className="w-[100%] m-2 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0">
-      <NavBar />
-      <div className="px-6">
-        <Routes>
-          {
-            loggedIn ?
-              <>
-                <Route path='/' element={<DisplayHome />} />
-                <Route path='/album/:id' element={<DisplayAlbum />} />
-              </> :
-              <>
-                <Route path='/' element={<Home />} />
-                <Route path='/artists' element={<Artists />} />
-                <Route path='/albums' element={<Albums />} />
-                <Route path="/radios" element={<Radio />} />
-              </>
-          }
-
-        </Routes>
-        <Footer />
+    <>
+      <ScrollToTop />
+      <div ref={displayRef} className="w-[100%] m-2 rounded bg-[#121212] text-white overflow-auto lg:w-[75%] lg:ml-0">
+        <NavBar />
+        <div className="">
+          <Routes>
+            {
+              loggedIn ?
+                <>
+                  <Route path='/' element={<DisplayHome />} />
+                  <Route path='/user' element={<Profile />} />
+                </> :
+                <>
+                  <Route path='/' element={<Home />} />
+                </>
+            }
+            <Route path='/artists' element={<Artists />} />
+            <Route path='/albums' element={<Albums />} />
+            <Route path="/radios" element={<Radio />} />
+            <Route path='/album/:id' element={<DisplayAlbum />} />
+            <Route path="/artist/:id" element={<ArtistDetail />} />
+            <Route path="/search" element={<Search />} />
+          </Routes>
+          <Footer />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 export default Display

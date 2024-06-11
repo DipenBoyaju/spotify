@@ -46,10 +46,21 @@ import song1 from './song1.mp3'
 import song2 from './song2.mp3'
 import song3 from './song3.mp3'
 import artist1 from './artist1.jpg'
+import artist1bg from './artist1-bg.jpg'
 import artist2 from './artist2.jpg'
+import artist2bg from './artist2-bg.webp'
 import artist3 from './artist3.jpg'
+import artist3bg from './artist3-bg.png'
 import artist4 from './artist4.jpg'
+import artist4bg from './artist4-bg.jpg'
 import artist5 from './artist5.jpg'
+import artist5bg from './artist5-bg.jpg'
+import verified from './verified.png'
+import search1 from './ab1.webp'
+import search2 from './ab2.png'
+import search3 from './ab3.png'
+import search4 from './ab4.jpg'
+import search5 from './ab5.webp'
 
 
 export const assets = {
@@ -81,7 +92,9 @@ export const assets = {
   facebook,
   apple,
   spotify,
-  artist1
+  artist1,
+  verified,
+  search1, search2, search3, search4, search5
 }
 
 export const albumsData = [
@@ -201,30 +214,35 @@ export const artists = [
     id: 0,
     name: "Arijit Singh",
     image: artist1,
+    bg: artist1bg,
     tag: "Artist",
   },
   {
     id: 1,
     name: "Sushant KC",
     image: artist2,
+    bg: artist2bg,
     tag: "Artist",
   },
   {
     id: 2,
     name: "The Elements",
     image: artist3,
+    bg: artist3bg,
     tag: "Artist",
   },
   {
     id: 3,
     name: "Sajjan Raj Vaidya",
     image: artist4,
+    bg: artist4bg,
     tag: "Artist",
   },
   {
     id: 4,
     name: "Pritam",
     image: artist5,
+    bg: artist5bg,
     tag: "Artist",
   },
 ]

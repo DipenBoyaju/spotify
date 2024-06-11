@@ -6,7 +6,7 @@ import Login from "./auth/Login"
 import SignUp from "./auth/SignUp"
 import Artists from "./artists/Artists"
 import Albums from "./components/Albums"
-import LoginPopup from "./components/LoginPopup"
+import ScrollToTop from "./components/ScrollToTop"
 
 const App = () => {
 
@@ -24,6 +24,10 @@ const App = () => {
     { path: 'login', element: <Login /> },
     { path: 'signup', element: <SignUp /> },
   ])
-  return <RouterProvider router={router} />
+  return (
+    <RouterProvider router={router}>
+      <ScrollToTop />
+    </RouterProvider>
+  )
 }
 export default App

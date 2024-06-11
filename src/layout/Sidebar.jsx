@@ -5,7 +5,7 @@ const Sidebar = ({ loggedIn }) => {
   const nav = useNavigate()
 
   return (
-    <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
+    <div className="w-[23%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
       <div className="bg-[#121212] h-[25%] rounded flex flex-col justify-around">
         <div className="flex items-center gap-3 pl-8 cursor-pointer" onClick={() => nav('/')}>
           <img src={assets.spotify} alt="" className="w-20" />
@@ -14,7 +14,7 @@ const Sidebar = ({ loggedIn }) => {
           <img src={assets.home_icon} alt="" className="w-6" />
           <p className="font-bold">Home</p>
         </div>
-        <div className="flex items-center gap-3 pl-8 cursor-pointer">
+        <div className="flex items-center gap-3 pl-8 cursor-pointer" onClick={() => nav('/search')}>
           <img src={assets.search_icon} alt="" className="w-6" />
           <p className="font-bold">Search</p>
         </div>

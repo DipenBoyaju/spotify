@@ -6,30 +6,35 @@ import { useContext } from "react"
 import { PlayerContext } from "../context/PlayerContext"
 import Preview from "./Preview"
 import LoginPopup from "../components/LoginPopup"
+import ArtistDetailTag from "../artists/ArtistDetailTag"
 
 const RootLayout = () => {
 
-  const { audioRef, track, showLoginPopup, setShowLoginPopup, loggedIn } = useContext(PlayerContext)
+  const { audioRef, track, showLoginPopup, setShowLoginPopup, loggedIn, showArtistTag } = useContext(PlayerContext)
+
   return (
-    <div className="h-screen flex flex-col">
-      <div className="h-[90%] flex">
-        <Sidebar />
-        <Display />
+    <>
+      <div className="h-screen flex flex-col">
+        <div className="h-[90%] flex">
+          <Sidebar />
+          <Display />
+        </div>
+        <div className="flex-1 overflow-auto">
+          <Outlet />
+        </div>
+        {
+          loggedIn ?
+            <>
+              <Player className="h-[10%]" />
+              <audio ref={audioRef} src={track.file} preload="auto"></audio>
+            </> :
+            <Preview className="h-[10%]" />
+        }
+        {showLoginPopup ? <LoginPopup onclose={() => setShowLoginPopup(false)} /> : ''}
+        {showArtistTag && <ArtistDetailTag />}
+        {/* <LoginPopup /> */}
       </div>
-      <div className="flex-1 overflow-auto">
-        <Outlet />
-      </div>
-      {
-        loggedIn ?
-          <>
-            <Player className="h-[10%]" />
-            <audio ref={audioRef} src={track.file} preload="auto"></audio>
-          </> :
-          <Preview className="h-[10%]" />
-      }
-      {showLoginPopup ? <LoginPopup onclose={() => setShowLoginPopup(false)} /> : ''}
-      {/* <LoginPopup /> */}
-    </div>
+    </>
   )
 }
 export default RootLayout
