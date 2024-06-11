@@ -16,7 +16,7 @@ const Menu = ({ setLoggedIn }) => {
         <Link className="hover:bg-zinc-700 px-2 py-2 flex items-center justify-between gap-4">
           Upgrade to Premium <BiLinkExternal className="text-lg" />
         </Link>
-        <Link className="hover:bg-zinc-700 px-2 py-2">Settings</Link>
+        <Link to="/preferences" className="hover:bg-zinc-700 px-2 py-2">Settings</Link>
         <hr className="border-t border-zinc-700" />
         <Link className="hover:bg-zinc-700 px-2 py-2" onClick={() => setLoggedIn(false)}>
           Log Out
@@ -61,9 +61,9 @@ const NavBar = () => {
             {
               loggedIn ?
                 <div className="flex items-center gap-2 z-30">
-                  <p className="bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer hover:scale-105">Explore premium</p>
-                  <p className="bg-black py-1 px-3 rounded-2xl text-[15px] cursor-pointer hover:scale-105">Install App</p>
-                  <p className="bg-black w-7 h-7 rounded-full flex items-center justify-center cursor-pointer text-[17px]"><GoBell /></p>
+                  <p className="bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer hover:scale-105" onClick={() => nav('/premium')}>Explore premium</p>
+                  <p className="bg-black py-1 px-3 rounded-2xl text-[15px] cursor-pointer hover:scale-105" onClick={() => nav('/download')}>Install App</p>
+                  <p className="bg-black w-7 h-7 rounded-full flex items-center justify-center cursor-pointer text-[17px] hover:scale-105" onClick={() => nav('/content-feed')}><GoBell /></p>
                   <p className="bg-green-500 text-black w-7 h-7 rounded-full flex items-center justify-center cursor-pointer border-[3px] border-black" onClick={handlemenu}>D</p>
                   {showMenu && <Menu setLoggedIn={setLoggedIn} />}
                 </div> :

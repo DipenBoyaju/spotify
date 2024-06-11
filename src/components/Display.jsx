@@ -14,6 +14,10 @@ import ArtistDetail from "../artists/ArtistDetail"
 import Search from "../pages/Search"
 import ScrollToTop from "./ScrollToTop"
 import Profile from "../profile/Profile"
+import InstallApp from "./InstallApp"
+import Notification from "./Notification"
+import Settings from "./Settings"
+import Premium from "./Premium"
 
 const Display = () => {
   const displayRef = useRef('')
@@ -43,6 +47,7 @@ const Display = () => {
                 <>
                   <Route path='/' element={<DisplayHome />} />
                   <Route path='/user' element={<Profile />} />
+                  <Route path='/preferences' element={<Settings />} />
                 </> :
                 <>
                   <Route path='/' element={<Home />} />
@@ -54,6 +59,9 @@ const Display = () => {
             <Route path='/album/:id' element={<DisplayAlbum />} />
             <Route path="/artist/:id" element={<ArtistDetail />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/download" element={<InstallApp />} />
+            <Route path="/content-feed" element={<Notification />} />
+            <Route path="/premium" element={<Premium />} />
           </Routes>
           <Footer />
         </div>

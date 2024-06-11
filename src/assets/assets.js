@@ -61,6 +61,11 @@ import search2 from './ab2.png'
 import search3 from './ab3.png'
 import search4 from './ab4.jpg'
 import search5 from './ab5.webp'
+import download from './download.png'
+import paypal from './paypal.svg'
+import visa from './visa.svg'
+import mastercard from './mastercard.svg'
+import amex from './amex.svg'
 
 
 export const assets = {
@@ -94,7 +99,9 @@ export const assets = {
   spotify,
   artist1,
   verified,
-  search1, search2, search3, search4, search5
+  search1, search2, search3, search4, search5,
+  download,
+  visa, amex, paypal, mastercard
 }
 
 export const albumsData = [
